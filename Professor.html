@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Attendance Management System</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #attendance-form {
+            margin: 0 auto;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, select, button {
+            margin: 10px 0;
+        }
+        select, button, input[type="text"], input[type="date"] {
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Attendance Management System</h1>
+    <p>Current Date: <span id="current-date"></span></p>
+
+    <form id="attendance-form">
+        <label for="university">Select University:</label>
+        <select id="university" name="university">
+            <option value="university1">University of Texas-Dallas</option>
+            <option value="university2">University of Texas-Austin</option>
+            <option value="university3">University of Texas-Arlington</option>
+        </select>
+        
+        <label for="course">Course:</label>
+        <select id="course" name="course">
+           <option value="course1">BUAN6320.001 Database Foundations for Business Analytics</option>
+            <option value="course2">BUAN6320.001 Database Foundations for Business Analytics</option>
+        </select>
+        
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester">
+            <option value="spring">Spring</option>
+            <option value="summer">Summer</option>
+            <option value="fall">Fall</option>
+        </select>
+        
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" name="start-date" required>
+        
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" name="end-date" required>
+        
+        <button type="button" onclick="viewAttendance()">View Attendance</button>
+       
+    </form>
+
+    <script>
+        // JavaScript to display the current date in the "current-date" span
+        const currentDateSpan = document.getElementById("current-date");
+        const currentDate = new Date();
+        currentDateSpan.textContent = currentDate.toDateString();
+
+        // JavaScript to handle button click and redirect
+        function viewAttendance() {
+            // Get form data
+            const university = document.getElementById("university").value;
+            const course = document.getElementById("course").value;
+            const semester = document.getElementById("semester").value;
+            const startDate = document.getElementById("start-date").value;
+            const endDate = document.getElementById("end-date").value;
+
+            // Redirect to the attendance report page with query parameters
+            const queryParams = `?university=${university}&course=${course}&semester=${semester}&start-date=${startDate}&end-date=${endDate}`;
+            window.location.href = `attendance_report.html${queryParams}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to University Attendance Management System</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #attendance-form {
+            margin: 0 auto;
+            width: 500px;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, select, button {
+            margin: 10px 0;
+        }
+        select, button {
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to University Attendance Management System</h1>
+    <p>Date: <span id="current-date"></span></p>
+
+    <form id="attendance-form">
+        <label for="university">Select University:</label>
+        <select id="university" name="university">
+            <option value="university1">The University of Texas-Dallas</option>
+            <option value="university2">The University of Texas-Austin</option>
+            <option value="university3">The University of Texas-Arlington</option>
+        </select>
+        
+        <label for="course">Select Course:</label>
+        <select id="course" name="course">
+            <option value="course1">BUAN6320.001 Database Foundations for Business Analytics</option>
+            <option value="course2">BUAN6320.001 Database Foundations for Business Analytics</option>
+        </select>
+        
+        <button type="button" onclick="submitAttendance()">Present</button>
+    </form>
+
+    <script>
+        // JavaScript to display the current date in the "current-date" span
+        const currentDateSpan = document.getElementById("current-date");
+        const currentDate = new Date();
+        currentDateSpan.textContent = currentDate.toDateString();
+
+        // JavaScript to handle button click and redirect
+        function submitAttendance() {
+            // You can add additional logic here if needed before redirecting
+
+            // Redirect to the new page
+            window.location.href = "Confirmation.html";
+        }
+    </script>
+</body>
+</html>
+

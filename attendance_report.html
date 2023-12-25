@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Attendance Management System</title>
+    <title>Attendance Report</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course Section</th>
+                <th>Course Code</th>
+                <th>Student ID</th>
+                <th>Attendance Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table data will be dynamically generated here -->
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript to dynamically populate the table with data
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the form data from the query parameters
+            const params = new URLSearchParams(window.location.search);
+            const university = params.get("university");
+            const course = params.get("course");
+            const semester = params.get("semester");
+            const startDate = params.get("start-date");
+            const endDate = params.get("end-date");
+
+           
+            const attendanceData = [
+                { courseSection: "0001", courseCode: "BUAN6320", studentID: "123456", attendancePercentage: "90%" },
+                { courseSection: "0001", courseCode: "BUAN6320", studentID: "789012", attendancePercentage: "80%" },
+                 { courseSection: "0001", courseCode: "BUAN6320", studentID: "879879", attendancePercentage: "60%" },
+                 { courseSection: "0001", courseCode: "BUAN6320", studentID: "352466", attendancePercentage: "40%" },
+                { courseSection: "0001", courseCode: "BUAN6320", studentID: "764767", attendancePercentage: "90%" },
+                // Add more data as needed
+            ];
+
+            // Populate the table with data
+            const tableBody = document.querySelector("tbody");
+            attendanceData.forEach(student => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${student.courseSection}</td>
+                    <td>${student.courseCode}</td>
+                    <td>${student.studentID}</td>
+                    <td>${student.attendancePercentage}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to University Attendance Management System</title>
+    <style>
+       body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #login-form {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin: 5px 0;
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to University Attendance Management System</h1>
+    <p>Date: <span id="current-date"></span></p>
+
+    <form id="login-form">
+        <label for="university">Select University:</label>
+        <select id="university" name="university">
+            <option value="university1">The University of Texas-Dallas</option>
+            <option value="university2">The University of Texas-Austin</option>
+            <option value="university3">The University of texas-Arlington</option>
+        </select>
+        <br>
+        <label for="netid">NetID:</label>
+        <input type="text" id="netid" name="netid" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const currentDateSpan = document.getElementById("current-date");
+        const currentDate = new Date();
+        currentDateSpan.textContent = currentDate.toDateString();
+
+
+   const loginForm = document.getElementById("login-form");
+
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Get the selected university and netID values
+        const selectedUniversity = document.getElementById("university").value;
+        const netID = document.getElementById("netid").value;
+
+        // authentication logic
+        const isAuthenticated = authenticateUser(netID);
+
+        if (isAuthenticated) {
+            // Redirect to Student.html 
+            window.location.href = "Student.html";
+        } else {
+            // Handle authentication failure 
+            alert("Authentication failed. Please check your credentials.");
+        }
+    });
+
+   
+    function authenticateUser(netID) {
+        
+        return true;
+    }
+    </script>
+</body>
+</html>
